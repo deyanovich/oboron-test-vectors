@@ -12,14 +12,14 @@ required to read them.
 ## Files
 
 - `test-vectors.jsonl` — core schemes (`dsiv`, `dgcmsiv`, `psiv`,
-  `pgcmsiv`) plus the obu `upcbc` scheme.
-- `ztier-test-vectors.jsonl` — the obu `zdcbc` (obfuscation) scheme.
+  `pgcmsiv`).
+- `obu-test-vectors.jsonl` — obu schemes (`upcbc`, `zdcbc`).
 - `legacy-test-vectors.jsonl` — legacy-scheme vectors (separate
   secret; see below).
 
 ## Keys
 
-All vectors in `test-vectors.jsonl` and `ztier-test-vectors.jsonl`
+All vectors in `test-vectors.jsonl` and `obu-test-vectors.jsonl`
 use one hardcoded test key, **insecure by design** (it is published
 here) and intended solely for cross-implementation conformance
 testing. The CLIs activate it via the `-K` / `--keyless` flag. The
