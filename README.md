@@ -14,6 +14,8 @@ required to read them.
 - `test-vectors.jsonl` — core schemes (`dsiv`, `dgcmsiv`, `psiv`,
   `pgcmsiv`).
 - `obu-test-vectors.jsonl` — obu schemes (`upcbc`, `zdcbc`).
+- `negative-test-vectors.jsonl` — inputs that MUST be rejected (see
+  Negative vectors below).
 - `legacy-test-vectors.jsonl` — legacy-scheme vectors (separate
   secret; see below).
 
@@ -86,6 +88,28 @@ Implementations read the meta line, extract `secret`, and pass it
 through their CLI's secret flag for the rest of the vectors. These
 vectors are retained for legacy compatibility and are outside the
 1.0 scheme set.
+
+## Negative vectors
+
+`negative-test-vectors.jsonl` holds inputs a conforming
+implementation MUST reject. Each line:
+
+```json
+{"op": "dec", "format": "dsiv.c32", "input": "...", "reason": "..."}
+```
+
+- `op` — `enc` or `dec`: the operation to run.
+- `format` — the format string.
+- `input` — the input fed to `op` (a plaintext for `enc`, an obtext
+  for `dec`), under the hardcoded test key.
+- `reason` — informative; the rule being exercised.
+
+Running `op` on `input` MUST fail; through the CLI this is a non-zero
+exit (exit 1, an operation failure). Categories: non-canonical
+encodings (wrong case, padding, out-of-alphabet character, impossible
+length, non-zero trailing bits), scheme outputs shorter than the
+layout minimum, authentication failures (a tampered obtext, for the
+authenticated schemes), and the empty plaintext.
 
 ## Roundtrip vs. exact-match testing
 
