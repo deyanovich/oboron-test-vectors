@@ -42,7 +42,7 @@ key. Hex (128 chars, 64 bytes):
 
 `dsiv`/`psiv` use the full 64-byte key as the AES-SIV key.
 `dgcmsiv`/`pgcmsiv` derive a 32-byte AES-GCM-SIV key from it with
-`HKDF-Expand` (per-scheme label; see the protocol spec).
+`HKDF-Expand` (info `gcmsiv`, shared by both; see the protocol spec).
 
 ### obu secret — `upcbc` and `zdcbc` (via `obu -K`)
 
