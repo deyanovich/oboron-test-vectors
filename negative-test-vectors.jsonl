@@ -27,6 +27,3 @@
 {"op": "dec", "format": "pgcmsiv.hex", "input": "000102030405060708090a0be3e04fef2503c60354bd5b472a14bb07522d34e538", "reason": "authentication failure: tampered ciphertext"}
 {"op": "dec", "format": "pgcmsiv.c32", "input": "000g40r40m30e209185y7r2fxwjg7hg3ajynphsa2jxgemhd6kjkg", "reason": "authentication failure: tampered ciphertext"}
 {"op": "enc", "format": "dsiv.c32", "input": "", "reason": "empty plaintext is rejected"}
-{"op": "dec", "format": "upcbc.hex", "input": "00000000000000000000000000000000", "reason": "upcbc too short (16 < 32: IV plus at least one block)"}
-{"op": "dec", "format": "upcbc.hex", "input": "00000000000000000000000000000000000000000000000000000000000000000000000000000000", "reason": "upcbc ciphertext after the IV is not a block multiple"}
-{"op": "dec", "format": "zdcbc.hex", "input": "0000000000000000", "reason": "zdcbc ciphertext is not a block multiple (8 bytes)"}

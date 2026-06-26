@@ -14,8 +14,10 @@ required to read them.
 - `test-vectors.jsonl` — core schemes (`dsiv`, `dgcmsiv`, `psiv`,
   `pgcmsiv`).
 - `obu-test-vectors.jsonl` — obu schemes (`upcbc`, `zdcbc`).
-- `negative-test-vectors.jsonl` — inputs that MUST be rejected (see
-  Negative vectors below).
+- `negative-test-vectors.jsonl` — core-scheme inputs that MUST be
+  rejected (see Negative vectors below).
+- `obu-negative-test-vectors.jsonl` — obu-scheme inputs that MUST be
+  rejected (run via the `obu` binary).
 - `legacy-test-vectors.jsonl` — legacy-scheme vectors (separate
   secret; see below).
 
@@ -91,8 +93,10 @@ vectors are retained for legacy compatibility and are outside the
 
 ## Negative vectors
 
-`negative-test-vectors.jsonl` holds inputs a conforming
-implementation MUST reject. Each line:
+`negative-test-vectors.jsonl` (core schemes, via `ob`) and
+`obu-negative-test-vectors.jsonl` (obu schemes, via `obu`) hold inputs
+a conforming implementation MUST reject. They mirror the positive split
+so each binary is fed only the schemes it owns. Each line:
 
 ```json
 {"op": "dec", "format": "dsiv.c32", "input": "...", "reason": "..."}
