@@ -129,4 +129,9 @@ authenticated schemes), and the empty plaintext.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Dual-licensed under either of
+
+- MIT ([LICENSE-MIT](LICENSE-MIT))
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE))
+
+at your option.
